@@ -83,7 +83,18 @@ Public Class frm_main
 
     Private Sub btn_reset_Click(sender As Object, e As EventArgs) Handles btn_reset.Click
         If userExists(txt_username.Text.ToLower) Then
-            'reset password
+            '// fancy encryption stuff from encryption.vb //
+
+            Dim password As String  'new string to hold encrypted password
+
+            Dim wrapper As Encryption = New Encryption(txt_username.Text.ToLower)             'make a new encrypted string with the key of username
+            password = wrapper.EncryptData(txt_password.Text)   'encrypt the password with the key of the username
+
+            Try
+                writeSQL("update tbl_users (password) where Name = convert(varchar, " & txt_username.Text.ToLower & ") values ('" & password & "')")
+            Catch ex As Exception
+                MsgBox("Fail to update password:" & vbCrLf & vbCrLf & ex.ToString)
+            End Try
         End If
     End Sub
 
