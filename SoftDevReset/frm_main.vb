@@ -76,6 +76,7 @@ Public Class frm_main
         Catch ex As Exception 'if a catastrophic error occurs
             'console.writeline(ex.ToString)
             MyConn.Close() 'close the connection
+            MsgBox(Query)
             MsgBox("Sql error" & vbCrLf & vbCrLf & ex.ToString)
             Return False
         End Try
@@ -91,7 +92,7 @@ Public Class frm_main
             password = wrapper.EncryptData(txt_password.Text)   'encrypt the password with the key of the username
 
             Try
-                writeSQL("update tbl_users (password) where Name = convert(varchar, " & txt_username.Text.ToLower & ") values ('" & password & "')")
+                writeSQL("update tbl_users set password = '" & password & "' where convert(varchar, Name) = '" & txt_username.Text.ToLower & "'")
             Catch ex As Exception
                 MsgBox("Fail to update password:" & vbCrLf & vbCrLf & ex.ToString)
             End Try
@@ -99,11 +100,10 @@ Public Class frm_main
     End Sub
 
     Private Sub btn_clear_Click(sender As Object, e As EventArgs) Handles btn_clear.Click
-        If MsgBox("Are you sure?", vbYesNo, "Clear database") = DialogResult.Yes Then
-            If MsgBox("This will destroy ALL DATA across ALL CHATS on this server. Are you sure you want to do this?", vbYesNo, "Clear database") = DialogResult.Yes Then
-                Dim sql As String = "disable all constraints EXEC sp_MSForEachTable ""ALTER TABLE ? NOCHECK CONSTRAINT all"" EXEC sp_MSForEachTable ""DELETE FROM ?"" DBCC CHECKIDENT (tbl_users, RESEED, 0) DBCC CHECKIDENT (tbl_streams, RESEED, 0) DBCC CHECKIDENT (tbl_messages, RESEED, 0) exec sp_MSForEachTable ""ALTER TABLE ? With CHECK CHECK CONSTRAINT all"""
-                writeSQL(sql)
-                MsgBox("All data permanently deleted.", vbOKOnly, "Gone.")
+        If MessageBox.Show("Are you sure?", "Delete All Data?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
+            If MessageBox.Show("This will destroy ALL DATA across ALL CHATS on this server. Are you sure you want to do this?", "Clear database", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
+                Dim sql As String = "EXEC sp_MSForEachTable ""ALTER TABLE ? NOCHECK CONSTRAINT all"" EXEC sp_MSForEachTable ""DELETE FROM ?"" DBCC CHECKIDENT (tbl_users, RESEED, 0) DBCC CHECKIDENT (tbl_streams, RESEED, 0) DBCC CHECKIDENT (tbl_messages, RESEED, 0) exec sp_MSForEachTable ""ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all"""
+                If writeSQL(sql) Then MsgBox("All data permanently deleted.", vbOKOnly, "Gone.") Else MsgBox("Error. No data deleted.", vbOKOnly, "Error")
             End If
         End If
     End Sub
