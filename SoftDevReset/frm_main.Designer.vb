@@ -22,9 +22,9 @@ Partial Class frm_main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.grp_saLogin = New System.Windows.Forms.GroupBox()
+        Me.grp_userReset = New System.Windows.Forms.GroupBox()
+        Me.grp_clear = New System.Windows.Forms.GroupBox()
         Me.txt_saUsername = New System.Windows.Forms.TextBox()
         Me.txt_saPassword = New System.Windows.Forms.TextBox()
         Me.btn_login = New System.Windows.Forms.Button()
@@ -36,49 +36,51 @@ Partial Class frm_main
         Me.lbl_username = New System.Windows.Forms.Label()
         Me.lbl_password = New System.Windows.Forms.Label()
         Me.btn_reset = New System.Windows.Forms.Button()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
+        Me.grp_saLogin.SuspendLayout()
+        Me.grp_userReset.SuspendLayout()
+        Me.grp_clear.SuspendLayout()
         Me.SuspendLayout()
         '
-        'GroupBox1
+        'grp_saLogin
         '
-        Me.GroupBox1.Controls.Add(Me.lbl_saPassword)
-        Me.GroupBox1.Controls.Add(Me.lbl_saUsername)
-        Me.GroupBox1.Controls.Add(Me.btn_login)
-        Me.GroupBox1.Controls.Add(Me.txt_saPassword)
-        Me.GroupBox1.Controls.Add(Me.txt_saUsername)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(201, 160)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Database Login"
+        Me.grp_saLogin.Controls.Add(Me.lbl_saPassword)
+        Me.grp_saLogin.Controls.Add(Me.lbl_saUsername)
+        Me.grp_saLogin.Controls.Add(Me.btn_login)
+        Me.grp_saLogin.Controls.Add(Me.txt_saPassword)
+        Me.grp_saLogin.Controls.Add(Me.txt_saUsername)
+        Me.grp_saLogin.Location = New System.Drawing.Point(13, 13)
+        Me.grp_saLogin.Name = "grp_saLogin"
+        Me.grp_saLogin.Size = New System.Drawing.Size(201, 160)
+        Me.grp_saLogin.TabIndex = 0
+        Me.grp_saLogin.TabStop = False
+        Me.grp_saLogin.Text = "Database Login"
         '
-        'GroupBox2
+        'grp_userReset
         '
-        Me.GroupBox2.Controls.Add(Me.btn_reset)
-        Me.GroupBox2.Controls.Add(Me.lbl_password)
-        Me.GroupBox2.Controls.Add(Me.lbl_username)
-        Me.GroupBox2.Controls.Add(Me.txt_password)
-        Me.GroupBox2.Controls.Add(Me.txt_username)
-        Me.GroupBox2.Location = New System.Drawing.Point(221, 13)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(166, 102)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "User Reset"
+        Me.grp_userReset.Controls.Add(Me.btn_reset)
+        Me.grp_userReset.Controls.Add(Me.lbl_password)
+        Me.grp_userReset.Controls.Add(Me.lbl_username)
+        Me.grp_userReset.Controls.Add(Me.txt_password)
+        Me.grp_userReset.Controls.Add(Me.txt_username)
+        Me.grp_userReset.Enabled = False
+        Me.grp_userReset.Location = New System.Drawing.Point(221, 13)
+        Me.grp_userReset.Name = "grp_userReset"
+        Me.grp_userReset.Size = New System.Drawing.Size(166, 102)
+        Me.grp_userReset.TabIndex = 1
+        Me.grp_userReset.TabStop = False
+        Me.grp_userReset.Text = "User Reset"
         '
-        'GroupBox3
+        'grp_clear
         '
-        Me.GroupBox3.Controls.Add(Me.btn_clear)
-        Me.GroupBox3.ForeColor = System.Drawing.Color.Red
-        Me.GroupBox3.Location = New System.Drawing.Point(221, 121)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(166, 52)
-        Me.GroupBox3.TabIndex = 2
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "DANGER ZONE"
+        Me.grp_clear.Controls.Add(Me.btn_clear)
+        Me.grp_clear.Enabled = False
+        Me.grp_clear.ForeColor = System.Drawing.Color.Red
+        Me.grp_clear.Location = New System.Drawing.Point(221, 121)
+        Me.grp_clear.Name = "grp_clear"
+        Me.grp_clear.Size = New System.Drawing.Size(166, 52)
+        Me.grp_clear.TabIndex = 2
+        Me.grp_clear.TabStop = False
+        Me.grp_clear.Text = "DANGER ZONE"
         '
         'txt_saUsername
         '
@@ -179,35 +181,35 @@ Partial Class frm_main
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(399, 185)
-        Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.grp_clear)
+        Me.Controls.Add(Me.grp_userReset)
+        Me.Controls.Add(Me.grp_saLogin)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frm_main"
         Me.Text = "SoftDevReset"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
+        Me.grp_saLogin.ResumeLayout(False)
+        Me.grp_saLogin.PerformLayout()
+        Me.grp_userReset.ResumeLayout(False)
+        Me.grp_userReset.PerformLayout()
+        Me.grp_clear.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents grp_saLogin As GroupBox
     Friend WithEvents lbl_saPassword As Label
     Friend WithEvents lbl_saUsername As Label
     Friend WithEvents btn_login As Button
     Friend WithEvents txt_saPassword As TextBox
     Friend WithEvents txt_saUsername As TextBox
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents grp_userReset As GroupBox
     Friend WithEvents btn_reset As Button
     Friend WithEvents lbl_password As Label
     Friend WithEvents lbl_username As Label
     Friend WithEvents txt_password As TextBox
     Friend WithEvents txt_username As TextBox
-    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents grp_clear As GroupBox
     Friend WithEvents btn_clear As Button
 End Class
