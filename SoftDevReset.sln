@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SoftDevReset", "SoftDevReset\SoftDevReset.vbproj", "{4F77C3EA-3433-44B2-A65D-1F5800C10613}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F77C3EA-3433-44B2-A65D-1F5800C10613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F77C3EA-3433-44B2-A65D-1F5800C10613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F77C3EA-3433-44B2-A65D-1F5800C10613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F77C3EA-3433-44B2-A65D-1F5800C10613}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86A7FE5D-DAB4-464A-BEC9-E782F4C47173}
+	EndGlobalSection
+EndGlobal
